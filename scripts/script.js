@@ -75,8 +75,9 @@ if(btn_facebook !== null){
             console.log(error)
             alert('ERROR');
         }else{
-            localStorage.setItem('user',JSON.stringify({email:data.email,uid:data.uid}))
-            window.location.href = "/chat.html"
+            console.log(data)
+            // localStorage.setItem('user',JSON.stringify({email:data.email,uid:data.uid}))
+            // window.location.href = "/chat.html"
         }
     })
 }
