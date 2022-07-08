@@ -70,7 +70,7 @@ if(btn_google !== null){
 if(btn_facebook !== null){
     btn_facebook.addEventListener('click', async(e)=>{
         const {error,data} = await logInFacebook();
-        console.log(error)
+        console.log(error,data)
         if(error){
             console.log(error)
             alert('ERROR');
