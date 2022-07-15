@@ -9,12 +9,14 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBmzvnkrY9p5aSAGhlpZGBvFQ5NNT74kf0",
-    authDomain: "chat-1ea6c.firebaseapp.com",
-    projectId: "chat-1ea6c",
-    storageBucket: "chat-1ea6c.appspot.com",
-    messagingSenderId: "41047799828",
-    appId: "1:41047799828:web:49ce894544aaae11accf01"
+    apiKey: "AIzaSyCiOM20kTzZb1ja3DCgRB4giAoyivK9csw",
+    authDomain: "idream-320719.firebaseapp.com",
+    databaseURL: "https://idream-320719-default-rtdb.firebaseio.com",
+    projectId: "idream-320719",
+    storageBucket: "idream-320719.appspot.com",
+    messagingSenderId: "258900551085",
+    appId: "1:258900551085:web:11cc339b964233d95f6d24",
+    measurementId: "G-LHEX3X3SHB"
 };
 
 // Initialize Firebase
