@@ -37,7 +37,7 @@ if(form_login !== null){
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const {error,data} = await logIn(email,password);
-
+        console.log(error, data)
         if(error){
             switch(data.code){
                 case 'auth/wrong-password': alert('Contraseña incorrecta');
@@ -57,6 +57,7 @@ if(form_login !== null){
 if(btn_google !== null){
     btn_google.addEventListener('click', async(e)=>{
         const {error,data} = await logInGoogle();
+        console.log(error, data)
         if(error){
             console.log(error)
             alert('ERROR');
