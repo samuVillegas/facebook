@@ -57,13 +57,13 @@ if(form_login !== null){
 if(btn_google !== null){
     btn_google.addEventListener('click', async(e)=>{
         const {error,data} = await logInGoogle();
-        console.log(error, data)
+        console.log(error, data)    
         if(error){
             console.log(error)
             alert('ERROR');
         }else{
-            localStorage.setItem('user',JSON.stringify({email:data.email,uid:data.uid}))
-            window.location.href = "/chat.html"
+            // localStorage.setItem('user',JSON.stringify({email:data.email,uid:data.uid}))
+            // window.location.href = "/chat.html"
         }
     })
 }
