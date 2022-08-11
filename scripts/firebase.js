@@ -7,7 +7,8 @@ import {
     GoogleAuthProvider, 
     signInWithPopup, 
     FacebookAuthProvider, 
-    deleteUser
+    deleteUser,
+    updateProfile
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -133,4 +134,22 @@ const logInFacebook = async () => {
     return result;
  }
 
-export { createUser, logIn, logInGoogle,logInFacebook,currentUser, deleteCurrentUser}
+ const updateCurrentUser = async () => {
+    const user = auth.currentUser;
+    const result = await updateProfile(user,{
+        email: "villegassamuel25@gmail.com"
+    })
+    .then((userCredential) => {
+        // Signed in
+        //const user = userCredential.user;
+        return { error: false, data: userCredential }
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        return { error: true, data: error }
+    });
+    return result;
+ }
+
+export { createUser, logIn, logInGoogle,logInFacebook,currentUser, deleteCurrentUser, updateCurrentUser}

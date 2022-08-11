@@ -1,4 +1,12 @@
-import { createUser, logIn, logInGoogle, logInFacebook, currentUser, deleteCurrentUser} from "./firebase.js";
+import { 
+    createUser, 
+    logIn, 
+    logInGoogle, 
+    logInFacebook, 
+    currentUser, 
+    deleteCurrentUser,
+    updateCurrentUser
+} from "./firebase.js";
 
 const form_registration = document.getElementById('form-registration');
 const form_login = document.getElementById('form-login');
@@ -6,6 +14,7 @@ const btn_google = document.getElementById('btn-google');
 const btn_facebook = document.getElementById('btn-facebook');
 const current_user = document.getElementById('current-user');
 const delete_current_user = document.getElementById('delete-current-user');
+const update_current_user = document.getElementById('update-current-user')
 
 
 if(form_registration !== null){
@@ -94,6 +103,21 @@ if (current_user !== null){
 if(delete_current_user !== null){
     delete_current_user.addEventListener('click', async () => {
         const {error,data} = await deleteCurrentUser();
+        console.log(error,data)
+        if(error){
+            console.log(error)
+            alert('ERROR');
+        }else{
+            console.log(data)
+            // localStorage.setItem('user',JSON.stringify({email:data.email,uid:data.uid}))
+            // window.location.href = "/chat.html"
+        }
+    })
+}
+
+if(update_current_user !== null){
+    update_current_user.addEventListener('click', async () => {
+        const {error,data} = await updateCurrentUser();
         console.log(error,data)
         if(error){
             console.log(error)
