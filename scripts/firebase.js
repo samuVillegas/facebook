@@ -107,4 +107,9 @@ const logInFacebook = async () => {
    return result;
  }
 
-export { createUser, logIn, logInGoogle,logInFacebook}
+ const currentUser = ()  => {
+    const user = auth.currentUser;
+    return user;
+ }
+
+export { createUser, logIn, logInGoogle,logInFacebook,currentUser}

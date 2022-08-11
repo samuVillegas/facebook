@@ -1,9 +1,10 @@
-import { createUser, logIn, logInGoogle, logInFacebook} from "./firebase.js";
+import { createUser, logIn, logInGoogle, logInFacebook, currentUser} from "./firebase.js";
 
 const form_registration = document.getElementById('form-registration');
 const form_login = document.getElementById('form-login');
 const btn_google = document.getElementById('btn-google');
 const btn_facebook = document.getElementById('btn-facebook');
+const current_user = document.getElementById('current-user')
 
 
 if(form_registration !== null){
@@ -80,5 +81,11 @@ if(btn_facebook !== null){
             // localStorage.setItem('user',JSON.stringify({email:data.email,uid:data.uid}))
             // window.location.href = "/chat.html"
         }
+    })
+}
+
+if (current_user !== null){
+    current_user.addEventListener('click', () => {
+        console.log(currentUser());
     })
 }
