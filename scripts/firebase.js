@@ -1,8 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
 import {
-    getAuth, createUserWithEmailAndPassword
-    , signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword, 
+    GoogleAuthProvider, 
+    signInWithPopup, 
+    FacebookAuthProvider, 
+    deleteUser
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -112,4 +117,20 @@ const logInFacebook = async () => {
     return user;
  }
 
-export { createUser, logIn, logInGoogle,logInFacebook,currentUser}
+ const deleteCurrentUser = async () => {
+    const user = auth.currentUser;
+    const result = await deleteUser(user)
+        .then((userCredential) => {
+            // Signed in
+            //const user = userCredential.user;
+            return { error: false, data: userCredential }
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            return { error: true, data: error }
+        });
+    return result;
+ }
+
+export { createUser, logIn, logInGoogle,logInFacebook,currentUser, deleteCurrentUser}
